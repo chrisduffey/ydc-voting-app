@@ -1,11 +1,11 @@
 const {Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
-const { default: isEmail } = require('validator/lib/isEmail');
+const isEmail = require('validator/lib/isEmail');
  
 class User extends Model {
     checkPassword(loginPw) {
-        return bcrypt.compareSync(loginPW, this.password);
+        return bcrypt.compareSync(loginPw, this.password);
     }
 }
 
@@ -45,7 +45,7 @@ User.init(
         },
     },
     sequelize,
-    timestamps: false, //should we switch this to true for voters ?
+    timestamps: true, //should we switch this to true for voters ?
     underscored: true,
     modelName: 'user',
 }
