@@ -45,7 +45,7 @@ User.init(
         },
     },
     sequelize,
-    timestamps: false, //should we switch this to true for voters ?
+    timestamps: true, //should we switch this to true for voters ?
     underscored: true,
     modelName: 'user',
 }
