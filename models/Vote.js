@@ -28,26 +28,22 @@ Vote.init(
                 key: 'id',
             },
         },
-        electionId: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'election',
-                key: 'id',
-            },
-        },
+        //we should only use it for one election may get to complicated if we do more than one.
+        // electionId: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     references: {
+        //         model: 'election',
+        //         key: 'id',
+        //     },
+        // },
     },
     {
         sequelize,
         timestamps: true, // Track vote time
         underscored: true,
         modelName: 'vote',
-        indexes: [
-            {
-                unique: true,
-                fields: ['voterId', 'electionId'],
-            },
-        ],
+       
     }
 );
 

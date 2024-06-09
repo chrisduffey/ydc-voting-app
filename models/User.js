@@ -17,7 +17,7 @@ User.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        name: {
+        username: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -51,4 +51,4 @@ User.init(
 }
 
 );
-module.exports = User
+module.exports = User;
