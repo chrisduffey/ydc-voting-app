@@ -8,14 +8,14 @@ const Candidate = require('./Candidate');
 const Election = require('./Election');
 
 // Define associations
-User.hasMany(Vote, { foreignKey: 'voterId', onDelete: 'CASCADE' });
-Vote.belongsTo(User, { foreignKey: 'voterId' });
+User.belongsToMany(Candidate, {through: Vote, foreignKey: 'voterId', onDelete: 'CASCADE' });
+Candidate.belongsToMany(User, { through: Vote, foreignKey: 'candidateId' });
 
-Candidate.hasMany(Vote, { foreignKey: 'candidateId', onDelete: 'CASCADE' });
-Vote.belongsTo(Candidate, { foreignKey: 'candidateId' });
+// Candidate.hasMany(Vote, { foreignKey: 'candidateId', onDelete: 'CASCADE' });
+// Vote.belongsTo(Candidate, { foreignKey: 'candidateId' });
 
-Election.hasMany(Vote, { foreignKey: 'electionId', onDelete: 'CASCADE' });
-Vote.belongsTo(Election, { foreignKey: 'electionId' });
+// Election.hasMany(Vote, { foreignKey: 'electionId', onDelete: 'CASCADE' });
+// Vote.belongsTo(Election, { foreignKey: 'electionId' });
 
 const syncDatabase = async () => {
     await sequelize.sync({ force: true });
@@ -26,7 +26,7 @@ module.exports = {
     User,
     Vote,
     Candidate,
-    Election,
-    sequelize,
-    syncDatabase,
+    // Election,
+    // sequelize,
+    // syncDatabase,
 };
