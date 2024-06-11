@@ -5,7 +5,7 @@ const sequelize = require('../config/connection');
 const User = require('./User');
 const Vote = require('./Vote');
 const Candidate = require('./Candidate');
-const Election = require('./Election');
+// const Election = require('./Election');
 
 // Define associations
 User.belongsToMany(Candidate, {through: Vote, foreignKey: 'voterId', onDelete: 'CASCADE' });
