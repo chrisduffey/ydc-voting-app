@@ -16,6 +16,10 @@ Candidate.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        party: {
+            type: DataTypes.STRING,
+            allowNull: false,
+          },
     },
     {
         sequelize,
