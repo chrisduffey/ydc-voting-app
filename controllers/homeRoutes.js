@@ -11,14 +11,16 @@ router.get("/login", async (req, res) => {
         return res.redirect("/vote")
         // create vote page and route
     }
-    res.render("login")
+    res.render("/login")
 }),
 
 router.get("/candidate", async (req, res)=> {
+    
     try {
         const candidateData= await Candidate.findAll()
         const candidates= candidateData.map(c =>c.get({plain: true}))
         res.render("candidate", {candidates})
+        
     } catch (err) {
         res.status(500).json(err.message)
     }
