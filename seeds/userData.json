@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Tim Cook",
+        "email": "bigtim@apple.com",
+        "password": "password2014"
+    },
+    {
+        "name": "Roy Rogers",
+        "email": "roy@tv.com",
+        "password": "password1023"
+    },
+    {
+        "name": "Morgan Freeman",
+        "email": "him@yahoo.com",
+        "password": "password2000"
+    },
+    {
+        "name": "Tom Brady",
+        "email": "footballguy@gmail.com",
+        "password": "password1007"
+    },
+    {
+        "name": "Chuck E. Cheese",
+        "email": "ratman@hotmail.com",
+        "password": "password1974"
+    },
+]
