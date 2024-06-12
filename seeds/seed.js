@@ -1,6 +1,8 @@
 const sequelize = require('../config/connection');
 const seedCandidates = require('./20240610120000-candidates-seed');
 const seedUsers = require('./20240610120200-users-seed');
+const{User} = require('../models');
+
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
