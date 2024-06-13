@@ -2,16 +2,19 @@ const router = require('express').Router();
 const { Candidate } = require('../models');
 const {User} = require('../utils/auth');
 
+
 router.get("/", async (req, res)=> {
-    res.render("hompage")
+    res.render("hompage", {
+        logged_in: req.session.logged_in,
+    })
 });
 
 router.get("/login", async (req, res) => {
     if(req.session.logged_in){
-        return res.redirect("/vote")
+        return res.redirect("/candidate")
         // create vote page and route
     }
-    res.render("/login")
+    res.render("login")
 }),
 
 router.get("/candidate", async (req, res)=> {
