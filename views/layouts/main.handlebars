@@ -12,8 +12,13 @@
   <header class="display-flex justify-space-between align-center p-2">
     <h1>YDC</h1>
     {{#if logged_in}}
+    
     <nav>
       <button class="btn" id="logout">logout</button>
+    </nav>
+    {{else }}
+     <nav>
+      <button class="btn" id="login">login</button>
     </nav>
     {{/if}}
   </header>
