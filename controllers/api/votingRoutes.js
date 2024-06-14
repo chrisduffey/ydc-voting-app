@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { User, Candidate, Vote } = require('../../models');
+const { count } = require('../../models/User');
 
 // Route to submit a vote
 router.post('/vote', async (req, res) => {
@@ -25,5 +26,21 @@ router.post('/vote', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+//update vote count
+router.put('/:id', async (req, res) => {
+  try {
+    const voteData = await Candidate.increment( "count",{by:1,
+      where: {
+
+        id: req.params.id,
+      },
+    });
+   
+    res.status(200).json(voteData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;
