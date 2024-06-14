@@ -29,6 +29,26 @@ router.get("/candidate", async (req, res)=> {
     }
     
 });
+router.get("/vote", async (req, res) => {
+    try {
+        // Check if user is logged in
+        if (!req.session.logged_in) {
+            // If not logged in, redirect to login page
+            return res.redirect("/login");
+        }
+
+        // Fetch data needed for the voting page
+        const candidateData = await Candidate.findAll();
+        const candidates = candidateData.map(c => c.get({ plain: true }));
+
+        // Render the voting page with the candidate data
+        res.render("vote", { candidates });
+    } catch (err) {
+        // Handle any errors
+        res.status(500).json({ error: err.message });
+    }
+});
+
 
 
 module.exports = router;

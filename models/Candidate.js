@@ -2,7 +2,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Candidate extends Model {}
+class Candidate extends Model {
+    addVote(){
+        return this.count++;
+    }
+}
 
 Candidate.init(
     {
@@ -26,6 +30,10 @@ Candidate.init(
           },
         link: {
             type: DataTypes.STRING,
+            allowNull: true
+          },
+        count: {
+            type: DataTypes.INTEGER,
             allowNull: true
           }
     },
