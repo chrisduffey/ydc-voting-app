@@ -17,18 +17,17 @@ router.get("/login", async (req, res) => {
     res.render("login")
 }),
 
-router.get("/candidate", async (req, res)=> {
-    
+router.get("/candidate", async (req, res) => {
     try {
-        const candidateData= await Candidate.findAll()
-        const candidates= candidateData.map(c =>c.get({plain: true}))
-        res.render("candidate", {candidates})
-        
+      const candidateData = await Candidate.findAll({
+        order: [["name", "DESC"]],
+      });
+      const candidates = candidateData.map((c) => c.get({ plain: true }));
+      res.render("candidate", { candidates, logged_in: req.session.logged_in });
     } catch (err) {
-        res.status(500).json(err.message)
+      res.status(500).json(err.message);
     }
-    
-});
+  });
 router.get("/vote", async (req, res) => {
     try {
         // Check if user is logged in
@@ -39,7 +38,9 @@ router.get("/vote", async (req, res) => {
 
         // Fetch data needed for the voting page
         const candidateData = await Candidate.findAll();
+        console.log(candidateData);
         const candidates = candidateData.map(c => c.get({ plain: true }));
+        console.log(candidates);
 
         // Render the voting page with the candidate data
         res.render("vote", { candidates });
