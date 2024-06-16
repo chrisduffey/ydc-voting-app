@@ -29,6 +29,10 @@ User.init(
                 isEmail: true,
             },
         },
+        vote: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+        },
         password: {
             type: DataTypes.STRING,
             allowNull: false,

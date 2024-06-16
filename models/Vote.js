@@ -28,15 +28,7 @@ Vote.init(
                 key: 'id',
             },
         },
-        //we should only use it for one election may get to complicated if we do more than one.
-        // electionId: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        //     references: {
-        //         model: 'election',
-        //         key: 'id',
-        //     },
-        // },
+        
     },
     {
         sequelize,
