@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { Candidate } = require('../models');
-const {User} = require('../utils/auth');
+const { Candidate, User } = require('../models');
+const withAuth = require('../utils/auth');
 
 
 router.get("/", async (req, res)=> {
@@ -17,17 +17,19 @@ router.get("/login", async (req, res) => {
     res.render("login")
 }),
 
-router.get("/candidate", async (req, res) => {
-    try {
-      const candidateData = await Candidate.findAll({
-        order: [["name", "DESC"]],
-      });
-      const candidates = candidateData.map((c) => c.get({ plain: true }));
-      res.render("candidate", { candidates, logged_in: req.session.logged_in });
-    } catch (err) {
-      res.status(500).json(err.message);
-    }
-  });
+router.get("/candidate", withAuth,async (req, res) => {
+  try {
+    const candidateData = await Candidate.findAll({
+      order: [["name", "DESC"]],
+    });
+    const candidates = candidateData.map((c) => c.get({ plain: true }));
+    const userData= await User.findByPk(req.session.user_id);
+    const user = userData.get({plain:true});
+    res.render("candidate", { candidates, logged_in: req.session.logged_in, user });
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
+});
 router.get("/vote", async (req, res) => {
     try {
         // Check if user is logged in

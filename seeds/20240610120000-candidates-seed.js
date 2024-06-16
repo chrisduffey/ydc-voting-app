@@ -32,6 +32,14 @@ const candidatesData = [
         "count": 0
 
     },
+    {
+        "name": "Cornel West",
+        "party": "Green",
+        "bio": "Scholar and activist.",
+        "link": "https://www.cornelwest24.com",
+        "count": 0
+    },
+
 
 ]
 
