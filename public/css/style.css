@@ -1,4 +1,4 @@
-header, .project:not(:last-child) {
+/* header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
 
@@ -21,6 +21,102 @@ header, .project:not(:last-child) {
   color: #056605;
   font-weight: bold;
   margin-left: -5px;
-}
+} */
 
 /* use my styles here  dont touch jass*/
+
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Header Styles */
+header {
+  background-color: #1b89bc;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+/* Row Styles */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 -15px;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.mb-5 {
+  margin-bottom: 3rem;
+}
+
+/* Column Styles */
+.col-md-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+/* Landing Page Styles */
+h2 {
+  font-size: 2em;
+  color: #1b89bc;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+h3 a {
+  display: inline-block;
+  background-color: #1b89bc;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+h3 a:hover {
+  background-color: #065b83;
+}
+
+/* No Button Styles */
+.no-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #1b89bc;
+  text-decoration: none;
+  font-size: 100%;
+}
+
+.no-button:hover {
+  color: #065b83;
+  text-decoration: underline;
+}
+
+/* Dollar Amount Styles */
+.dollar-amount {
+  color: #056605;
+  font-weight: bold;
+  margin-left: -5px;
+}
