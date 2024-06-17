@@ -13,6 +13,8 @@ const loginFormHandler = async (event) => {
 
         if (response.ok) {
             document.location.replace('/candidate');
+            localStorage.setItem('isLoggedIn', 'true'); ////////////testing
+            console.log('isLoggedIn');
         } else {
             alert('Please review log in credentials');
         }
@@ -34,6 +36,8 @@ const signupFormHandler = async (event) => {
   
       if (response.ok) {
         document.location.replace('/candidate');
+        localStorage.setItem('isLoggedIn', 'true');///////////test
+
       } else {
         alert(response.statusText);
       }

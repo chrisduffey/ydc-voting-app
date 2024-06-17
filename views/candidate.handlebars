@@ -12,12 +12,14 @@
     <button class="voteButton" id="{{id}}" data-candidatename="{{name}}">Vote!</button>
     {{/each}}
   </div>
-  <div class="col-md-6">
+ <div class="col-md-6">
     <h3><a href="/">Home</a></h3>
-    <h3><a href="/login">Login or Sign Up</a></h3>
+    {{#unless isLoggedIn}}
+        <h3 id="loginSignup"><a href="/login">Login or Sign Up</a></h3> {{!aded id to element}}
+    {{/unless}}
     <h3><a href="/candidate">View Candidate and Vote Casting</a></h3>
-    
-  </div>
+</div>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

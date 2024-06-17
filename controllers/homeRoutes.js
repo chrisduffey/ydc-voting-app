@@ -25,7 +25,8 @@ router.get("/candidate", withAuth,async (req, res) => {
     const candidates = candidateData.map((c) => c.get({ plain: true }));
     const userData= await User.findByPk(req.session.user_id);
     const user = userData.get({plain:true});
-    res.render("candidate", { candidates, logged_in: req.session.logged_in, user });
+    const isLoggedIn = req.session.isLoggedIn || false;
+    res.render("candidate", { candidates, logged_in: req.session.logged_in, user, isLoggedIn });
   } catch (err) {
     res.status(500).json(err.message);
   }
