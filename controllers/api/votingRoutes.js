@@ -23,7 +23,7 @@ router.post('/vote', async (req, res) => {
     if (!user || !candidate) {
       return res.status(400).json({ error: 'Invalid user or candidate' });
     }
-    // idea to allow one vote per user
+    // one vote per user
     const existingVote = await Vote.findOne({
       where: {
         voterId: userId,
